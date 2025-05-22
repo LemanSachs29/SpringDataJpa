@@ -25,9 +25,9 @@ public class PersonaController {
         return persoService.getPersonas();
     }
 
-    @GetMapping("/personas/traer/{id}")
-    public Persona buscarPorId(@PathVariable Long  id) {
-        return persoService.findPersona(id);
+    @GetMapping("/personas/traer/{id_perso}")
+    public Persona buscarPorId(@PathVariable Long  id_perso) {
+        return persoService.findPersona(id_perso);
     }
     
     @PostMapping("/personas/crear")
@@ -38,30 +38,30 @@ public class PersonaController {
     }
 
 
-    @DeleteMapping("/personas/borrar/{id}")
-    public String deletePersona(@PathVariable Long id){
-        persoService.deletePersona(id);
+    @DeleteMapping("/personas/borrar/{id_perso}")
+    public String deletePersona(@PathVariable Long id_perso){
+        persoService.deletePersona(id_perso);
 
         return "La persona fue eliminada correctamente";
     }
 
-    @PutMapping("/personas/editar/{id}")
-    public Persona editPersona(@PathVariable Long id, 
+    @PutMapping("/personas/editar/{id_perso}")
+    public Persona editPersona(@PathVariable Long id_perso, 
                                @RequestParam(required = false, name = "nombre") String nuevoNombre,
-                               @RequestParam(required = false, name = "apellido") String nuevoApellido,
+                               @RequestParam(required = false, name = "apellid_persoo") String nuevoApellid_persoo,
                                @RequestParam(required = false, name = "edad") Integer nuevaEdad){
 
                             
         //Llamar al service
-        persoService.editPersona(id, nuevoNombre, nuevoApellido, nuevaEdad);
+        persoService.editPersona(id_perso, nuevoNombre, nuevoApellid_persoo, nuevaEdad);
 
         //Retornar la persona editada
-        return persoService.findPersona(id);
+        return persoService.findPersona(id_perso);
     }
 
 
     @PutMapping("/personas/editar")
-    public Persona editMascota(@RequestBody Persona per){
+    public Persona editPersona(@RequestBody Persona per){
         persoService.editPersona(per);
 
         return persoService.findPersona(per.getId());

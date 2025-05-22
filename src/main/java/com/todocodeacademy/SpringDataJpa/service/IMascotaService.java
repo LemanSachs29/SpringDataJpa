@@ -26,4 +26,6 @@ public interface IMascotaService{
                             String nuevaRaza, 
                             String nuevoColor);
 
+    public void editMascota(Mascota masco);
+
 }

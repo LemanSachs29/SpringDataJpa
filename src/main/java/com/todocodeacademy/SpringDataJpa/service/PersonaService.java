@@ -26,22 +26,22 @@ public class PersonaService implements IPersonaService{
     }
 
     @Override
-    public void deletePersona(Long id) {
-        persoRespRepo.deleteById(id);
+    public void deletePersona(Long id_perso) {
+        persoRespRepo.deleteById(id_perso);
     }
 
     @Override
-    public Persona findPersona(Long id) {
-        return persoRespRepo.findById(id).orElse(null);
+    public Persona findPersona(Long id_perso) {
+        return persoRespRepo.findById(id_perso).orElse(null);
     }
 
     @Override
-    public void editPersona(Long id, 
+    public void editPersona(Long id_perso, 
                             String nuevoNombre, 
                             String nuevoApellido, 
                             Integer nuevaEdad) {
         //busco el objeto
-        Persona perso = this.findPersona(id);
+        Persona perso = this.findPersona(id_perso);
 
         //Edición del objeto
         if (nuevoNombre != null){

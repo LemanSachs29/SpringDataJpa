@@ -15,13 +15,13 @@ public interface IPersonaService {
     public void savePersona(Persona persona);
 
     //baja
-    public void deletePersona(Long id);
+    public void deletePersona(Long id_perso);
 
     //lectura de un solo objeto
-    public Persona findPersona(Long id);
+    public Persona findPersona(Long id_perso);
 
     //edición/modificación
-    public void editPersona(Long id, 
+    public void editPersona(Long id_perso, 
                             String nuevoNombre, 
                             String nuevoApellido, 
                             Integer nuevaEdad);
