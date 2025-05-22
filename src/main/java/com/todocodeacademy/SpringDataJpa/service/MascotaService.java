@@ -69,4 +69,10 @@ public class MascotaService implements IMascotaService{
         this.saveMascota(mascota);
     }
 
+    @Override
+    public void editMascota(Mascota masco) {
+        mascoRepo.save(masco);
+
+    }
+
 }

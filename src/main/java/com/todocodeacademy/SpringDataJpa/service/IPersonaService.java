@@ -26,6 +26,6 @@ public interface IPersonaService {
                             String nuevoApellido, 
                             Integer nuevaEdad);
 
-    public Persona editPersona(Persona per);
+    public void editPersona(Persona per);
 
 }

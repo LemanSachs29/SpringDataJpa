@@ -12,27 +12,27 @@ import com.todocodeacademy.SpringDataJpa.repository.IPersonaRepository;
 public class PersonaService implements IPersonaService{
 
     @Autowired
-    private IPersonaRepository persoRespRepo;
+    private IPersonaRepository persoRepo;
 
     @Override
     public List<Persona> getPersonas() {
-        List<Persona> listaPersonas = persoRespRepo.findAll();
+        List<Persona> listaPersonas = persoRepo.findAll();
         return listaPersonas;
     }
 
     @Override
     public void savePersona(Persona persona) {
-        persoRespRepo.save(persona);
+        persoRepo.save(persona);
     }
 
     @Override
     public void deletePersona(Long id_perso) {
-        persoRespRepo.deleteById(id_perso);
+        persoRepo.deleteById(id_perso);
     }
 
     @Override
     public Persona findPersona(Long id_perso) {
-        return persoRespRepo.findById(id_perso).orElse(null);
+        return persoRepo.findById(id_perso).orElse(null);
     }
 
     @Override
@@ -59,9 +59,7 @@ public class PersonaService implements IPersonaService{
     }
 
     @Override
-    public Persona editPersona(Persona per) {
-        persoRespRepo.save(per);
-
-        return this.findPersona(per.getId());
+    public void editPersona(Persona per) {
+        persoRepo.save(per);
     }
 }
